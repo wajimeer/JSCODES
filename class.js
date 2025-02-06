@@ -44,13 +44,13 @@ class Student {
         let average = total / this.grades.length;
 
         if (average > 90) {
-            console.log(`This student has A+ with an average of ${average.toFixed(2)}`);
+            console.log(`This student has A+ with an average of ${average}`);
         } else if (average > 80) {
-            console.log(`This student has B+ with an average of ${average.toFixed(2)}`);
+            console.log(`This student has B+ with an average of ${average}`);
         } else if (average > 70) {
-            console.log(`This student has C+ with an average of ${average.toFixed(2)}`);
+            console.log(`This student has C+ with an average of ${average}`);
         } else {
-            console.log(`Student failed with an average of ${average.toFixed(2)}`);
+            console.log(`Student failed with an average of ${average}`);
         }
     }
 }
