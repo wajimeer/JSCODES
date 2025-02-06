@@ -21,5 +21,47 @@ let user ={
     street:"mahrabadi ggggggg"
 }
 for(let users in user){
+   
     console.log(users,':',user[users])
 }
+
+class Student {
+    constructor() {
+        this.grades = []; 
+    }
+
+    addGrades(name, studentGrade) {
+        this.grades.push({ name, studentGrade }); 
+    }
+
+    countAverage() {
+        if (this.grades.length === 0) {
+            console.log("No students available to calculate average.");
+            return;
+        }
+
+        let total = this.grades.reduce((sum, student) => sum + student.studentGrade, 0);
+        let average = total / this.grades.length;
+
+        if (average > 90) {
+            console.log(`This student has A+ with an average of ${average.toFixed(2)}`);
+        } else if (average > 80) {
+            console.log(`This student has B+ with an average of ${average.toFixed(2)}`);
+        } else if (average > 70) {
+            console.log(`This student has C+ with an average of ${average.toFixed(2)}`);
+        } else {
+            console.log(`Student failed with an average of ${average.toFixed(2)}`);
+        }
+    }
+}
+
+
+let stud = new Student();
+
+
+stud.addGrades("Ali", 100);
+stud.addGrades("Wali", 60);
+stud.addGrades("Jali", 80);
+
+
+stud.countAverage();
