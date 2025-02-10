@@ -65,11 +65,30 @@ stud.addGrades("Jali", 80);
 
 
 stud.countAverage();
- class newthings{
-    constructor(sugar){
-        this.sugar=sugar
+class Animals{
+    static create(type){
+        if(type==='dog'){
+            return new Dog()
+        }
+        if(type ==='cat'){
+            return new Cat()
+        }
+        return Animals
     }
- }
- class things extends newthings{
+    speak(){
+        console.log('animals make sounds')
+    }
     
- }
+}
+class Dog extends Animals{
+    speak(){
+        console.log('Dog barks')
+    }
+}
+class Cat extends Animals{
+    speak(){
+        console.log('cats meawo')
+    }
+}
+let pet = Animals.create('cat')
+pet.speak()
