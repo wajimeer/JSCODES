@@ -65,3 +65,11 @@ stud.addGrades("Jali", 80);
 
 
 stud.countAverage();
+ class newthings{
+    constructor(sugar){
+        this.sugar=sugar
+    }
+ }
+ class things extends newthings{
+    
+ }
