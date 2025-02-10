@@ -92,3 +92,45 @@ class Cat extends Animals{
 }
 let pet = Animals.create('cat')
 pet.speak()
+
+
+class Shop {
+    constructor(name) {
+        this.name = name;
+    }
+    
+    showShop() {
+        console.log(`This shop's name is ${this.name}`);
+    }
+}
+
+class Things extends Shop {
+    constructor(name, things) {
+        super(name);
+        this.things = things;
+    }
+    
+    shopThings() {
+        console.log(`Shop has the following things: ${this.things}`);
+    }
+}
+
+class ThingsName extends Things {
+    constructor(name, things, sugar, rice, cotton) {
+        super(name, things);
+        this.sugar = sugar;
+        this.rice = rice;
+        this.cotton = cotton;
+    }
+    
+    showItems() {
+        console.log(`Store Name: ${this.name}`);
+        console.log(`Items Available - Sugar: ${this.sugar}, Rice: ${this.rice}, Cotton: ${this.cotton}`);
+    }
+}
+
+
+const myShop = new ThingsName("General Store", ["sugar", "rice", "cotton"], "5kg", "10kg", "20 meters");
+myShop.showShop();     
+myShop.shopThings();    
+myShop.showItems();     
