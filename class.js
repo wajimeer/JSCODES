@@ -112,6 +112,8 @@ class Things extends Shop {
     
     shopThings() {
         console.log(`Shop has the following things: ${this.things}`);
+
+
     }
 }
 
@@ -134,3 +136,40 @@ const myShop = new ThingsName("General Store", ["sugar", "rice", "cotton"], "5kg
 myShop.showShop();     
 myShop.shopThings();    
 myShop.showItems();     
+
+function deepCopy(obj) {
+    if (obj === null || typeof obj !== "object") {
+        return obj; 
+    }
+
+    
+    let isArray = false;
+    for (let key in obj) {
+        if (key == "0" || key == "length") { 
+            isArray = true;
+            break;
+        }
+    }
+
+    let copy = isArray ? [] : {};
+
+    for (let key in obj) {
+        copy[key] = deepCopy(obj[key]); 
+    }
+
+    return copy;
+}
+
+
+let obj1 = { name: "Ali", details: { age: 25, city: "Lahore" }, hobbies: ["reading", "gaming"] };
+
+let obj2 = deepCopy(obj1);
+
+obj2.details.city = "Karachi";
+obj2.hobbies.push("coding");
+
+console.log(obj1.details.city); 
+console.log(obj2.details.city); 
+
+console.log(obj1.hobbies); 
+console.log(obj2.hobbies); 
