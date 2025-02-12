@@ -284,8 +284,23 @@ console.log(person1.properties())
 //  that applies a percentage discount on the product price.
 
 function product(name,price,category){
-
+    this.name=name;
+    this.price=price;
+    this.category=category;
 }
+product.prototype.apllydiscount=function (discount){
+    if(discount<0||discount>100){
+        console.log(`invalid discount percentage`)
+        return;
+    }
+    this.price-=(this.price*discount)/100;
+}
+const product1 = new product("Laptop", 1000, "Electronics");
+console.log(`Original Price: $${product1.price}`); 
+
+product1.apllydiscount(10); 
+console.log(`Discounted Price: $${product1.price}`); 
+
 
 
 
