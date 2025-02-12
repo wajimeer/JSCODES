@@ -173,38 +173,45 @@
 // console.log(obj1.hobbies); 
 // console.log(obj2.hobbies); 
 
+// function deepCopy(obj){
+//     let newobj ={}
+//     for(let key of obj){
+//         if (typeof obj[key]==='object'&&obj[key]!==null){
+//             newobj[key]=deepCopy(obj[key])
+//         }else{
+//             newobj[key]=obj[key]
+//         }
+        
+//     }
+//     return newobj
+// }
+// let orignal={
+//     name:'waji',
+//     address:{
+//         city:"newyork"
+//     }
+// }
+// let cloned =deepCopy(orignal)
 
-function bankacount (acountname,balance){
-    this.acountname=acountname;
-    this.balance=balance;
+function marge(obj,obj2){
+    let emptyobj={}
+    for(let key in obj){
+        emptyobj[key]=obj[key]
+    }
+    for(let key in obj2){
+        emptyobj[key]=obj2[key]
+    }
+    return emptyobj;
+}
+let obj1 = {a:1,b:2}
+let obj3 = {c:1,d:2}
+console.log(marge(obj1,obj3))
 
-}
-bankacount.prototype.deposite=function (amount){
-this.balance+=amount
-console.log(`deposit the money ${this.balance}`)
-}
-bankacount.prototype.withdraw = function (amount){
+function finds(obj){
    
-    if(amount>this.balance){
-        console.log(`${this.balance}`);
-        
+    for(let key in obj){
+        return false;
     }
-    else {
-        this.balance-=amount
-        console.log(`${this.balance}`);
-        
-    }
+    return true;
 }
-function saving(acountname,balance,intreset){
-    bankacount.call(this,acountname,balance)
-    this.intreset=intreset;
-
-}
-saving.prototype=Object.create(bankacount.prototype)
-saving.prototype.intrestrate= function(){
-    let intrest = this.balance*(this.intreset/100)
-    this.balance+=intrest
-}
-let sav = new saving(101,50000,5)
-sav.intrestrate()
-
+console.log(finds({a:1}))
