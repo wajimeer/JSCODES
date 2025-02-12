@@ -301,6 +301,72 @@ console.log(`Original Price: $${product1.price}`);
 product1.apllydiscount(10); 
 console.log(`Discounted Price: $${product1.price}`); 
 
+function sumNestedArray(arr) {
+    let sum = 0; 
+
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === "number") {
+            sum += arr[i]; 
+        } else if (arr[i]) {
+            sum += sumNestedArray(arr[i]);
+        }
+    }
+
+    return sum;
+}
 
 
+const numbers = [1, [2, [3, 4], 5], [6, 7]];
+console.log(sumNestedArray(numbers));
+
+// methode changing
+let obj= {
+    title:'123',
+    author:'waji',
+    pages:300,
+    method:function(pages){
+        this.pages=pages
+        return this
+    },
+    recallingmethode:function(){
+        console.log(`${this.title},${this.author},${this.pages}`)
+        return this;
+    }
+}
+obj.method(350).recallingmethode()
+
+// animal function nested
+function animal(type,breed){
+    this.type=type;
+    this.breed=breed;
+
+}
+animal.prototype.showdetails=function(){
+    console.log(`his type is ${this.type} and his breed is ${this.breed} `)
+}
+function dog(type,breed,speak){
+    animal.call(this,type,breed)
+    this.speak=speak;
+}
+dog.prototype=Object.create(animal.prototype)
+dog.prototype.constructor=dog;
+dog.prototype.bark=function (){
+    console.log(`his type is ${this.type} and his breed is ${this.breed} and they bark ${this.speak}`)
+}
+let ani = new dog("dog","bully","baow baow")
+ani.bark()
+
+const team = {
+    leader: "Sarah",
+    members: [
+      { name: "John", role: "Developer" },
+      { name: "Ali", role: "Designer" },
+      { name: "Emma", role: "Manager" }
+    ]
+  };
+  const {leader,members:[{name:desName},{name:devName},{name:man}]}=team
+  console.log(leader)
+  console.log(desName)
+  console.log(devName)
+  console.log(man)
 
