@@ -1,197 +1,179 @@
-// class library {
-//     constructor(){
-//         this.addbook = []
-//     }
-//     addbooks(title,author,refrencenumber){
-//        this.addbook.push({title,author,refrencenumber})
-//     }
-//     findbook(find){
-//      this.addbook.find(book=>book.refrencenumber===find)
-//         console.log(`you find this book ${find}`) 
-//     }
-// }
-// let person = new library('atomic','hobb',123)
-// person.findbook(123)
+class library {
+    constructor(){
+        this.addbook = []
+    }
+    addbooks(title,author,refrencenumber){
+       this.addbook.push({title,author,refrencenumber})
+    }
+    findbook(find){
+     this.addbook.find(book=>book.refrencenumber===find)
+        console.log(`you find this book ${find}`) 
+    }
+}
+let person = new library('atomic','hobb',123)
+person.findbook(123)
 
 
-// let user ={
-//     name:"jawad",
-//     age:25,
-//     city:"multan",
-//     street:"mahrabadi ggggggg"
-// }
-// for(let users in user){
+let user ={
+    name:"jawad",
+    age:25,
+    city:"multan",
+    street:"mahrabadi ggggggg"
+}
+for(let users in user){
    
-//     console.log(users,':',user[users])
-// }
+    console.log(users,':',user[users])
+}
 
-// class Student {
-//     constructor() {
-//         this.grades = []; 
-//     }
+class Student {
+    constructor() {
+        this.grades = []; 
+    }
 
-//     addGrades(name, studentGrade) {
-//         this.grades.push({ name, studentGrade }); 
-//     }
+    addGrades(name, studentGrade) {
+        this.grades.push({ name, studentGrade }); 
+    }
 
-//     countAverage() {
-//         if (this.grades.length === 0) {
-//             console.log("No students available to calculate average.");
-//             return;
-//         }
+    countAverage() {
+        if (this.grades.length === 0) {
+            console.log("No students available to calculate average.");
+            return;
+        }
 
-//         let total = this.grades.reduce((sum, student) => sum + student.studentGrade, 0);
-//         let average = total / this.grades.length;
+        let total = this.grades.reduce((sum, student) => sum + student.studentGrade, 0);
+        let average = total / this.grades.length;
 
-//         if (average > 90) {
-//             console.log(`This student has A+ with an average of ${average}`);
-//         } else if (average > 80) {
-//             console.log(`This student has B+ with an average of ${average}`);
-//         } else if (average > 70) {
-//             console.log(`This student has C+ with an average of ${average}`);
-//         } else {
-//             console.log(`Student failed with an average of ${average}`);
-//         }
-//     }
-// }
-
-
-// let stud = new Student();
+        if (average > 90) {
+            console.log(`This student has A+ with an average of ${average}`);
+        } else if (average > 80) {
+            console.log(`This student has B+ with an average of ${average}`);
+        } else if (average > 70) {
+            console.log(`This student has C+ with an average of ${average}`);
+        } else {
+            console.log(`Student failed with an average of ${average}`);
+        }
+    }
+}
 
 
-// stud.addGrades("Ali", 100);
-// stud.addGrades("Wali", 60);
-// stud.addGrades("Jali", 80);
+let stud = new Student();
 
 
-// stud.countAverage();
-// class Animals{
-//     static create(type){
-//         if(type==='dog'){
-//             return new Dog()
-//         }
-//         if(type ==='cat'){
-//             return new Cat()
-//         }
-//         return Animals
-//     }
-//     speak(){
-//         console.log('animals make sounds')
-//     }
+stud.addGrades("Ali", 100);
+stud.addGrades("Wali", 60);
+stud.addGrades("Jali", 80);
+
+
+stud.countAverage();
+class Animals{
+    static create(type){
+        if(type==='dog'){
+            return new Dog()
+        }
+        if(type ==='cat'){
+            return new Cat()
+        }
+        return Animals
+    }
+    speak(){
+        console.log('animals make sounds')
+    }
     
-// }
-// class Dog extends Animals{
-//     speak(){
-//         console.log('Dog barks')
-//     }
-// }
-// class Cat extends Animals{
-//     speak(){
-//         console.log('cats meawo')
-//     }
-// }
-// let pet = Animals.create('cat')
-// pet.speak()
+}
+class Dog extends Animals{
+    speak(){
+        console.log('Dog barks')
+    }
+}
+class Cat extends Animals{
+    speak(){
+        console.log('cats meawo')
+    }
+}
+let pet = Animals.create('cat')
+pet.speak()
 
 
-// class Shop {
-//     constructor(name) {
-//         this.name = name;
-//     }
+class Shop {
+    constructor(name) {
+        this.name = name;
+    }
     
-//     showShop() {
-//         console.log(`This shop's name is ${this.name}`);
-//     }
-// }
+    showShop() {
+        console.log(`This shop's name is ${this.name}`);
+    }
+}
 
-// class Things extends Shop {
-//     constructor(name, things) {
-//         super(name);
-//         this.things = things;
-//     }
+class Things extends Shop {
+    constructor(name, things) {
+        super(name);
+        this.things = things;
+    }
     
-//     shopThings() {
-//         console.log(`Shop has the following things: ${this.things}`);
+    shopThings() {
+        console.log(`Shop has the following things: ${this.things}`);
 
 
-//     }
-// }
+    }
+}
 
-// class ThingsName extends Things {
-//     constructor(name, things, sugar, rice, cotton) {
-//         super(name, things);
-//         this.sugar = sugar;
-//         this.rice = rice;
-//         this.cotton = cotton;
-//     }
+class ThingsName extends Things {
+    constructor(name, things, sugar, rice, cotton) {
+        super(name, things);
+        this.sugar = sugar;
+        this.rice = rice;
+        this.cotton = cotton;
+    }
     
-//     showItems() {
-//         console.log(`Store Name: ${this.name}`);
-//         console.log(`Items Available - Sugar: ${this.sugar}, Rice: ${this.rice}, Cotton: ${this.cotton}`);
-//     }
-// }
+    showItems() {
+        console.log(`Store Name: ${this.name}`);
+        console.log(`Items Available - Sugar: ${this.sugar}, Rice: ${this.rice}, Cotton: ${this.cotton}`);
+    }
+}
 
 
-// const myShop = new ThingsName("General Store", ["sugar", "rice", "cotton"], "5kg", "10kg", "20 meters");
-// myShop.showShop();     
-// myShop.shopThings();    
-// myShop.showItems();     
+const myShop = new ThingsName("General Store", ["sugar", "rice", "cotton"], "5kg", "10kg", "20 meters");
+myShop.showShop();     
+myShop.shopThings();    
+myShop.showItems();     
 
-// function deepCopy(obj) {
-//     if (obj === null || typeof obj !== "object") {
-//         return obj; 
-//     }
+function deepCopy(obj) {
+    if (obj === null || typeof obj !== "object") {
+        return obj; 
+    }
 
     
-//     let isArray = false;
-//     for (let key in obj) {
-//         if (key == "0" || key == "length") { 
-//             isArray = true;
-//             break;
-//         }
-//     }
+    let isArray = false;
+    for (let key in obj) {
+        if (key == "0" || key == "length") { 
+            isArray = true;
+            break;
+        }
+    }
 
-//     let copy = isArray ? [] : {};
+    let copy = isArray ? [] : {};
 
-//     for (let key in obj) {
-//         copy[key] = deepCopy(obj[key]); 
-//     }
+    for (let key in obj) {
+        copy[key] = deepCopy(obj[key]); 
+    }
 
-//     return copy;
-// }
+    return copy;
+}
 
 
-// let obj1 = { name: "Ali", details: { age: 25, city: "Lahore" }, hobbies: ["reading", "gaming"] };
+let obj1 = { name: "Ali", details: { age: 25, city: "Lahore" }, hobbies: ["reading", "gaming"] };
 
-// let obj2 = deepCopy(obj1);
+let obj2 = deepCopy(obj1);
 
-// obj2.details.city = "Karachi";
-// obj2.hobbies.push("coding");
+obj2.details.city = "Karachi";
+obj2.hobbies.push("coding");
 
-// console.log(obj1.details.city); 
-// console.log(obj2.details.city); 
-// console.log(obj1.hobbies); 
-// console.log(obj2.hobbies); 
+console.log(obj1.details.city); 
+console.log(obj2.details.city); 
+console.log(obj1.hobbies); 
+console.log(obj2.hobbies); 
 
-// function deepCopy(obj){
-//     let newobj ={}
-//     for(let key of obj){
-//         if (typeof obj[key]==='object'&&obj[key]!==null){
-//             newobj[key]=deepCopy(obj[key])
-//         }else{
-//             newobj[key]=obj[key]
-//         }
-        
-//     }
-//     return newobj
-// }
-// let orignal={
-//     name:'waji',
-//     address:{
-//         city:"newyork"
-//     }
-// }
-// let cloned =deepCopy(orignal)
+
 
 function marge(obj,obj2){
     let emptyobj={}
@@ -203,9 +185,9 @@ function marge(obj,obj2){
     }
     return emptyobj;
 }
-let obj1 = {a:1,b:2}
+let obj4 = {a:1,b:2}
 let obj3 = {c:1,d:2}
-console.log(marge(obj1,obj3))
+console.log(marge(obj4,obj3))
 
 function finds(obj){
    
@@ -215,3 +197,95 @@ function finds(obj){
     return true;
 }
 console.log(finds({a:1}))
+
+
+function Library(title,author){
+    this.title=title;
+    this.author=author;
+}
+Library.prototype.removebook=function (booktitle){
+    if (this.title!==booktitle){
+        console.log(`Book "${booktitle}" not found.`);
+    }else {
+        this.title=''
+        console.log(`book removed`);
+    }
+    
+    
+}
+Library.prototype.findbook=function(booktitle){
+   if (this.title===booktitle){
+    console.log(`Book "${booktitle}"  found.`);
+   }
+}
+let myLibrary = new Library('JavaScript Basics', 'John Doe');
+myLibrary.findbook('JavaScript Basics');
+myLibrary.removebook('JavaScript Basics'); 
+myLibrary.findbook('JavaScript Basics'); 
+// merge two object
+function merge (obj,obj1){
+    let empty = {}
+    for (let key in obj){
+        empty[key]=obj[key]
+    }
+    for (let key in obj1){
+        empty[key]=obj1[key]
+    }
+return empty 
+
+}
+let a={a:1,b:2}
+let b={d:4,c:3}
+console.log(merge(a,b))
+// Create a Person constructor function that takes name, 
+// age, and an array friends.
+//  Add a method addFriend() that allows adding a new 
+// friend to the friends array.
+
+
+function Person ( name,age ,friend){
+    this.name=name;
+    this.age=age;
+    this.friend=friend||[];
+
+}
+Person.prototype.addfriend = function (friendname){
+    this.friend.push(friendname)
+}
+let newfriend = new Person('waji',22,['ali','ahmed','jawad'])
+console.log(newfriend.friend)
+newfriend.addfriend('zain')
+console.log(newfriend)  
+
+// Create a Person constructor function that has
+//  name and age properties. 
+// Add a static method isAdult() that returns
+//  true if the person’s age is 18 or above, and false 
+// otherwise
+function persons(name,age){
+    this.name = name;
+    this.age=age;
+}
+persons.prototype.properties = function (){
+    if(this.age>18){
+        return true
+    }else{
+        return false;
+    }
+}
+let person1 = new persons('waji',17)
+console.log(person1.properties())
+
+
+
+// Create a Product constructor function that takes name,
+//  price, and category as parameters. Add a method
+//   applyDiscount(discount)
+//  that applies a percentage discount on the product price.
+
+function product(name,price,category){
+
+}
+
+
+
