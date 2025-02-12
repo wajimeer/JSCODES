@@ -1,175 +1,210 @@
-class library {
-    constructor(){
-        this.addbook = []
-    }
-    addbooks(title,author,refrencenumber){
-       this.addbook.push({title,author,refrencenumber})
-    }
-    findbook(find){
-     this.addbook.find(book=>book.refrencenumber===find)
-        console.log(`you find this book ${find}`) 
-    }
-}
-let person = new library('atomic','hobb',123)
-person.findbook(123)
+// class library {
+//     constructor(){
+//         this.addbook = []
+//     }
+//     addbooks(title,author,refrencenumber){
+//        this.addbook.push({title,author,refrencenumber})
+//     }
+//     findbook(find){
+//      this.addbook.find(book=>book.refrencenumber===find)
+//         console.log(`you find this book ${find}`) 
+//     }
+// }
+// let person = new library('atomic','hobb',123)
+// person.findbook(123)
 
 
-let user ={
-    name:"jawad",
-    age:25,
-    city:"multan",
-    street:"mahrabadi ggggggg"
-}
-for(let users in user){
+// let user ={
+//     name:"jawad",
+//     age:25,
+//     city:"multan",
+//     street:"mahrabadi ggggggg"
+// }
+// for(let users in user){
    
-    console.log(users,':',user[users])
-}
+//     console.log(users,':',user[users])
+// }
 
-class Student {
-    constructor() {
-        this.grades = []; 
-    }
+// class Student {
+//     constructor() {
+//         this.grades = []; 
+//     }
 
-    addGrades(name, studentGrade) {
-        this.grades.push({ name, studentGrade }); 
-    }
+//     addGrades(name, studentGrade) {
+//         this.grades.push({ name, studentGrade }); 
+//     }
 
-    countAverage() {
-        if (this.grades.length === 0) {
-            console.log("No students available to calculate average.");
-            return;
-        }
+//     countAverage() {
+//         if (this.grades.length === 0) {
+//             console.log("No students available to calculate average.");
+//             return;
+//         }
 
-        let total = this.grades.reduce((sum, student) => sum + student.studentGrade, 0);
-        let average = total / this.grades.length;
+//         let total = this.grades.reduce((sum, student) => sum + student.studentGrade, 0);
+//         let average = total / this.grades.length;
 
-        if (average > 90) {
-            console.log(`This student has A+ with an average of ${average}`);
-        } else if (average > 80) {
-            console.log(`This student has B+ with an average of ${average}`);
-        } else if (average > 70) {
-            console.log(`This student has C+ with an average of ${average}`);
-        } else {
-            console.log(`Student failed with an average of ${average}`);
-        }
-    }
-}
-
-
-let stud = new Student();
+//         if (average > 90) {
+//             console.log(`This student has A+ with an average of ${average}`);
+//         } else if (average > 80) {
+//             console.log(`This student has B+ with an average of ${average}`);
+//         } else if (average > 70) {
+//             console.log(`This student has C+ with an average of ${average}`);
+//         } else {
+//             console.log(`Student failed with an average of ${average}`);
+//         }
+//     }
+// }
 
 
-stud.addGrades("Ali", 100);
-stud.addGrades("Wali", 60);
-stud.addGrades("Jali", 80);
+// let stud = new Student();
 
 
-stud.countAverage();
-class Animals{
-    static create(type){
-        if(type==='dog'){
-            return new Dog()
-        }
-        if(type ==='cat'){
-            return new Cat()
-        }
-        return Animals
-    }
-    speak(){
-        console.log('animals make sounds')
-    }
+// stud.addGrades("Ali", 100);
+// stud.addGrades("Wali", 60);
+// stud.addGrades("Jali", 80);
+
+
+// stud.countAverage();
+// class Animals{
+//     static create(type){
+//         if(type==='dog'){
+//             return new Dog()
+//         }
+//         if(type ==='cat'){
+//             return new Cat()
+//         }
+//         return Animals
+//     }
+//     speak(){
+//         console.log('animals make sounds')
+//     }
     
-}
-class Dog extends Animals{
-    speak(){
-        console.log('Dog barks')
-    }
-}
-class Cat extends Animals{
-    speak(){
-        console.log('cats meawo')
-    }
-}
-let pet = Animals.create('cat')
-pet.speak()
+// }
+// class Dog extends Animals{
+//     speak(){
+//         console.log('Dog barks')
+//     }
+// }
+// class Cat extends Animals{
+//     speak(){
+//         console.log('cats meawo')
+//     }
+// }
+// let pet = Animals.create('cat')
+// pet.speak()
 
 
-class Shop {
-    constructor(name) {
-        this.name = name;
-    }
+// class Shop {
+//     constructor(name) {
+//         this.name = name;
+//     }
     
-    showShop() {
-        console.log(`This shop's name is ${this.name}`);
-    }
-}
+//     showShop() {
+//         console.log(`This shop's name is ${this.name}`);
+//     }
+// }
 
-class Things extends Shop {
-    constructor(name, things) {
-        super(name);
-        this.things = things;
-    }
+// class Things extends Shop {
+//     constructor(name, things) {
+//         super(name);
+//         this.things = things;
+//     }
     
-    shopThings() {
-        console.log(`Shop has the following things: ${this.things}`);
+//     shopThings() {
+//         console.log(`Shop has the following things: ${this.things}`);
 
 
-    }
-}
+//     }
+// }
 
-class ThingsName extends Things {
-    constructor(name, things, sugar, rice, cotton) {
-        super(name, things);
-        this.sugar = sugar;
-        this.rice = rice;
-        this.cotton = cotton;
-    }
+// class ThingsName extends Things {
+//     constructor(name, things, sugar, rice, cotton) {
+//         super(name, things);
+//         this.sugar = sugar;
+//         this.rice = rice;
+//         this.cotton = cotton;
+//     }
     
-    showItems() {
-        console.log(`Store Name: ${this.name}`);
-        console.log(`Items Available - Sugar: ${this.sugar}, Rice: ${this.rice}, Cotton: ${this.cotton}`);
-    }
-}
+//     showItems() {
+//         console.log(`Store Name: ${this.name}`);
+//         console.log(`Items Available - Sugar: ${this.sugar}, Rice: ${this.rice}, Cotton: ${this.cotton}`);
+//     }
+// }
 
 
-const myShop = new ThingsName("General Store", ["sugar", "rice", "cotton"], "5kg", "10kg", "20 meters");
-myShop.showShop();     
-myShop.shopThings();    
-myShop.showItems();     
+// const myShop = new ThingsName("General Store", ["sugar", "rice", "cotton"], "5kg", "10kg", "20 meters");
+// myShop.showShop();     
+// myShop.shopThings();    
+// myShop.showItems();     
 
-function deepCopy(obj) {
-    if (obj === null || typeof obj !== "object") {
-        return obj; 
-    }
+// function deepCopy(obj) {
+//     if (obj === null || typeof obj !== "object") {
+//         return obj; 
+//     }
 
     
-    let isArray = false;
-    for (let key in obj) {
-        if (key == "0" || key == "length") { 
-            isArray = true;
-            break;
-        }
-    }
+//     let isArray = false;
+//     for (let key in obj) {
+//         if (key == "0" || key == "length") { 
+//             isArray = true;
+//             break;
+//         }
+//     }
 
-    let copy = isArray ? [] : {};
+//     let copy = isArray ? [] : {};
 
-    for (let key in obj) {
-        copy[key] = deepCopy(obj[key]); 
-    }
+//     for (let key in obj) {
+//         copy[key] = deepCopy(obj[key]); 
+//     }
 
-    return copy;
+//     return copy;
+// }
+
+
+// let obj1 = { name: "Ali", details: { age: 25, city: "Lahore" }, hobbies: ["reading", "gaming"] };
+
+// let obj2 = deepCopy(obj1);
+
+// obj2.details.city = "Karachi";
+// obj2.hobbies.push("coding");
+
+// console.log(obj1.details.city); 
+// console.log(obj2.details.city); 
+// console.log(obj1.hobbies); 
+// console.log(obj2.hobbies); 
+
+
+function bankacount (acountname,balance){
+    this.acountname=acountname;
+    this.balance=balance;
+
 }
+bankacount.prototype.deposite=function (amount){
+this.balance+=amount
+console.log(`deposit the money ${this.balance}`)
+}
+bankacount.prototype.withdraw = function (amount){
+   
+    if(amount>this.balance){
+        console.log(`${this.balance}`);
+        
+    }
+    else {
+        this.balance-=amount
+        console.log(`${this.balance}`);
+        
+    }
+}
+function saving(acountname,balance,intreset){
+    bankacount.call(this,acountname,balance)
+    this.intreset=intreset;
 
+}
+saving.prototype=Object.create(bankacount.prototype)
+saving.prototype.intrestrate= function(){
+    let intrest = this.balance*(this.intreset/100)
+    this.balance+=intrest
+}
+let sav = new saving(101,50000,5)
+sav.intrestrate()
 
-let obj1 = { name: "Ali", details: { age: 25, city: "Lahore" }, hobbies: ["reading", "gaming"] };
-
-let obj2 = deepCopy(obj1);
-
-obj2.details.city = "Karachi";
-obj2.hobbies.push("coding");
-
-console.log(obj1.details.city); 
-console.log(obj2.details.city); 
-
-console.log(obj1.hobbies); 
-console.log(obj2.hobbies); 
