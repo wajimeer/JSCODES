@@ -498,7 +498,7 @@ function vehicle(brand, speed) {
   Car.prototype.fueltype = function () {
     return `This ${this.brand} gave good Average on ${this.fuelType}`;
   };
-  // let vehicle1 = new vehicle("Toyota", "120kmh");
+  let vehicle1 = new vehicle("Toyota", "120kmh");
   let car1 = new Car("Toyota", 120, "Diesel");
   
   console.log(car1.fueltype());
@@ -517,3 +517,5 @@ function vehicle(brand, speed) {
   let circ =  new circle(5)
   console.log(circ.area())
   console.log(circ.circumference())
+
+ 
