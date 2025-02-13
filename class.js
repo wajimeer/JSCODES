@@ -518,4 +518,24 @@ function vehicle(brand, speed) {
   console.log(circ.area())
   console.log(circ.circumference())
 
- 
+  function deepclone(obj){
+    let empty ={}
+    for (let key in obj){
+        if(typeof obj[key]==='object'&&obj[key]!==null){
+            empty[key]=deepclone(obj[key])
+        }else{
+            empty[key]=obj[key]
+        }
+    }
+    return empty
+  }
+let ob = {
+    name:'waji',
+    adress:{
+        city:"lahore"
+    }
+}
+ let clone = deepclone(ob)
+ clone.adress.city="karachi"
+ console.log(ob.adress.city)
+ console.log(clone.adress.city)
