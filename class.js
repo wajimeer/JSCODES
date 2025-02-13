@@ -370,3 +370,45 @@ const team = {
   console.log(devName)
   console.log(man)
 
+  function userss(name,age){
+    this.name=name;
+    this.age=age
+    this.displayinfo=function(){
+        console.log(`this is my ${this.name} and this is my age ${this.age} `)
+    }
+  }
+  const users = new userss('waji',22)
+  users.displayinfo()
+
+  function BankingSystem(holdername, balance) {
+    this.holdername = holdername;
+    this.balance = balance;
+}
+
+
+BankingSystem.prototype.deposit = function(amount) {
+    if (amount > 0) {
+        this.balance += amount;
+        console.log(`Deposited: ${amount}. New Balance: ${this.balance}`);
+    } else {
+        console.log("Deposit amount must be greater than zero.");
+    }
+};
+
+BankingSystem.prototype.withdraw = function(amount) {
+    if (amount > 0 && this.balance >= amount) {
+        this.balance -= amount;
+        console.log(`Beep Beep! You withdrew ${amount}. Remaining Balance: ${this.balance}`);
+    } else if (amount <= 0) {
+        console.log("Withdrawal amount must be greater than zero.");
+    } else {
+        console.log("Insufficient balance.");
+    }
+};
+
+
+const account1 = new BankingSystem("Ali", 5000);
+account1.deposit(1000);  
+account1.withdraw(2000);  
+account1.withdraw(5000);  
+
