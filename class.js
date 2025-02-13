@@ -412,3 +412,68 @@ account1.deposit(1000);
 account1.withdraw(2000);  
 account1.withdraw(5000);  
 
+
+function car(brand ,model){
+    this.brand=brand;
+    this.model=model;
+}
+car.prototype.getdetails = ()=>{
+    return `brand:${this.brand},Model:${this.model}`
+}
+const mycar =new car('toyota','corolla')
+console.log(mycar.getdetails());
+//the answer is undefifine because arrow function have his this
+//key is lexical because they can't reffer the object.
+
+const obj23 ={
+    name:"ali",
+    age:25,
+    getage:function(){
+        return this.age;
+    },
+    getname:()=>{
+        return this.name;
+    }
+}
+console.log(obj23.getage())
+console.log(obj23.getname())
+//the answer of the age will be give us but name give undifend
+//or give error because arrow function have his this keyword 
+//in lexical sope because they can't reffer the object
+
+function animal(name,sound){
+    this.name=name;
+    this.sound=sound;
+}
+animal.prototype.makesound = function(){
+    return`${this.name} says ${this.sound}`
+}
+animal.prototype. eat=
+   function(){
+        return`${this.name} is eating`
+    }
+
+const dogi = new animal('dog','bark')
+console.log(dogi.makesound())
+console.log(dogi.eat())
+//the answer of that question is when program run they check
+//the code line by line when they see
+//  console.log(dogi.makesound())they were incorrect
+//  the program through error
+
+const personprototype ={
+    greet:function(){
+        return `hello, my name is ${this.name}`
+    }
+}
+const person12 =Object.create(personprototype)
+person12.name="waji"
+function persos(name){
+    this.name=name;
+}
+persos.prototype.greet = function (){
+    return `hello ,my name is ${this.name}`
+}
+const pers = new persos('sara')
+console.log(person12.greet())
+console.log(pers.greet())
