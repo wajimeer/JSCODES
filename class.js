@@ -477,3 +477,43 @@ persos.prototype.greet = function (){
 const pers = new persos('sara')
 console.log(person12.greet())
 console.log(pers.greet())
+
+
+function vehicle(brand, speed) {
+    this.brand = brand;
+    this.speed = speed;
+  }
+  
+  vehicle.prototype.speeed = function () {
+    return `This ${this.brand} is moving with the speed of ${this.speed}`;
+  };
+  
+  function Car(brand, speed, fuelType) {
+    vehicle.call(this, brand, speed);
+    this.fuelType = fuelType;
+  }
+  Car.prototype = Object.create(vehicle.prototype);
+  Car.prototype.constructor = Car;
+  
+  Car.prototype.fueltype = function () {
+    return `This ${this.brand} gave good Average on ${this.fuelType}`;
+  };
+  // let vehicle1 = new vehicle("Toyota", "120kmh");
+  let car1 = new Car("Toyota", 120, "Diesel");
+  
+  console.log(car1.fueltype());
+  console.log(car1.speeed());
+
+
+  function circle(radius){
+    this.radius=radius;
+    this.area=function(){
+        return Math.PI *this.radius*this.radius
+    }
+    this.circumference = function (){
+        return 2*Math.PI*this.radius
+    }
+  }
+  let circ =  new circle(5)
+  console.log(circ.area())
+  console.log(circ.circumference())
