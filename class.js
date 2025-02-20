@@ -539,3 +539,26 @@ let ob = {
  clone.adress.city="karachi"
  console.log(ob.adress.city)
  console.log(clone.adress.city)
+
+
+ let large={
+    a:10,b:20,c:30,d:40,e:5
+ }
+ let largest = large["a"]
+ for(let key in large){
+    if(large[key]<largest){
+        largest=large[key]
+    }
+ }
+ console.log(largest)
+ function findduplicate(arr){
+    for(let i=0;i<arr.length;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i]===arr[j]){
+                return true
+            }
+        }
+    }
+    return false
+}
+console.log(findduplicate([1,2,3,4,5,1]))
