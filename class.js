@@ -562,3 +562,118 @@ let ob = {
     return false
 }
 console.log(findduplicate([1,2,3,4,5,1]))
+function duplicate(arr){
+    let nums = new Set()
+    for(let num of arr){
+        if(nums.has(num)){
+            return true;
+        }
+        nums.add(num)
+    }
+    return false;
+}
+console.log(duplicate([1,2,3,4,5,1]))
+
+
+function groupanagram(arr){
+    if(arr.length === 0){
+        return false;
+    }
+
+    function custom(str){
+        let arr1 = [];
+        let n = str.length;
+
+        // Manually converting string to character array
+        for(let i = 0; i < n; i++){
+            arr1[i] = str[i];  
+        }
+
+        // Bubble Sort to sort characters
+        for(let i = 0; i < n - 1; i++){
+            for(let j = 0; j < n - i - 1; j++){
+                if(arr1[j] > arr1[j + 1]){ // Fixed: use arr1 instead of arr
+                    let x = arr1[j];
+                    arr1[j] = arr1[j + 1];
+                    arr1[j + 1] = x;
+                }
+            }
+        }
+
+        // Convert sorted array back to string
+        let sort = "";
+        for(let i = 0; i < arr1.length; i++){ // Fixed arr.length to arr1.length
+            sort += arr1[i];
+        }
+
+        return sort;
+    }
+
+    let sorted = custom(arr[0]); // Fixed function call
+
+    for(let i = 0; i < arr.length; i++){
+        if(custom(arr[i]) !== sorted){
+            return false;
+        }
+    }
+    return true;
+}
+
+// Testing the function
+console.log(groupanagram(["eat", "tea", "ate","eta","ate"])); // true
+// console.log(groupanagram(["eat", "tea", "tan", "ate", "nat", "bat"])); // false
+// console.log(groupanagram(["abc", "bac", "cab", "cba"])); // true
+// console.log(groupanagram(["hello", "world"])); // false
+
+    
+
+
+// function groupanagram(arr){
+//     let map = {};
+    
+//     for(let word of arr){
+//         let sortedWord = word.split('').sort().join(''); // Har word ko sort karna
+//         if(!map[sortedWord]){
+//             map[sortedWord] = true; // Agar key nahi hai toh true assign karo
+//         }
+//     }
+    
+//     return map; // Map return karo jo sorted words ko true mark karega
+// }
+
+// console.log(groupanagram(["eat", "tea", "tan", "ate", "nat", "bat"]));
+
+function groupAnagrams(arr) {
+    if (arr.length === 0) {
+        return [];
+    }
+
+    function sortString(str) {
+        return str.split('').sort().join('');
+    }
+
+    let anagramGroups = {};
+    
+    for (let word of arr) {
+        let sortedWord = sortString(word);
+        if (!anagramGroups[sortedWord]) {
+            anagramGroups[sortedWord] = [];
+        }
+        anagramGroups[sortedWord].push(word);
+    }
+
+    return Object.values(anagramGroups);
+}
+
+console.log(groupAnagrams(["eat", "tea", "ate"])); 
+// Output: [["eat", "tea", "ate"]]
+
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])); 
+// Output: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+
+console.log(groupAnagrams(["abc", "bac", "cab", "cba"])); 
+// Output: [["abc", "bac", "cab", "cba"]]
+
+console.log(groupAnagrams(["hello", "world"])); 
+// Output: [["hello"], ["world"]]
+
