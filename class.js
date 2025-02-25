@@ -662,7 +662,7 @@ function groupAnagrams(arr) {
         anagramGroups[sortedWord].push(word);
     }
 
-    return Object.values(anagramGroups);
+    return Object.values(anagramGroups)
 }
 
 console.log(groupAnagrams(["eat", "tea", "ate"])); 
