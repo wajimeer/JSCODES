@@ -20,13 +20,15 @@ function anagram(arr,arr1){
     for(let check of arr1){
         if(!empty[check]){
             return false
+          
         }
         empty[check]--
+       
     }
     return true
 
 }
-console.log(anagram('silent','listen'))
+console.log(anagram('silenet','listene'))
 function twosum(arr,arr1){
     for (let i=0;i<arr.length;i++){
         for(let j=i+1;j<arr.length;j++){
