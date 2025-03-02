@@ -170,3 +170,85 @@ function binarrysearch(arr,target){
     return -1
 }
 console.log(binarrysearch([1,2,33,4,5,77,8,9],9))
+
+function plaindrome(str){
+    let freq = {}
+    for(let char of str){
+        if(char !== ""){
+            freq[char]=(freq[char]||0)+1
+        }
+    }
+    let oddcount =0;
+    for(key in freq){
+        if(freq[key]%2!==0){
+            oddcount++; 
+        }
+
+    }
+    return oddcount <=1;
+}
+console.log(plaindrome("racecar"))
+ class user{
+    constructor(name, age ){
+        this.name=name;
+        this.age=age;
+       
+    }
+ }
+ class person extends user{
+    constructor(name ,age ,birth){
+        super(name,age);
+        this.birth=birth;
+        this.show=function (){
+         return  this.birth-=this.age
+        }
+    }
+ }
+ let per = new person("waji",22,2025)
+ console.log(per.show())
+
+ function users(name, age){
+    this.name=name;
+    this.age=age
+ }
+ users.prototype.showdetail=function (){
+    return `${this.name} ${this.age}`
+ }
+ let pre=new users("waji",21)
+ console.log(pre.showdetail())
+
+ function krotation(arr , k){
+    let n=arr.length;
+     k=k%n
+    for(let i=0; i<k;i++){
+        let last = arr[n-1]
+
+        for(let j=n-1;j>0;j--){
+            arr[j]=arr[j-1]
+        }
+         arr[0]=last
+    }
+    return arr;
+
+ }
+ let a=[1,2,3,4,5,6]
+ console.log(krotation(a,3))
+
+ function newbinary(arr,target){
+   let left=0;
+   let right=arr.length-1;
+   while(left<=right){
+    let mid=Math.floor(left+right/2)
+    if(arr[mid]===target){
+        return mid;
+    }else if(arr[mid]<target){
+        left =mid +1
+    }else{
+        right = mid -1
+    }
+
+   }
+   return -1
+ }
+
+ console.log(newbinary([1,2,3,4,5,6,7],8))
